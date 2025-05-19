@@ -1,0 +1,9 @@
+﻿  Main.cpp
+C:\Users\bughi\source\repos\STLParalel\STLParalel\Main.cpp(35,17): warning C4566: character represented by universal-character-name '\u26A0' cannot be represented in the current code page (1252)
+C:\Users\bughi\source\repos\STLParalel\STLParalel\Main.cpp(35,17): warning C4566: character represented by universal-character-name '\uFE0F' cannot be represented in the current code page (1252)
+C:\Users\bughi\source\repos\STLParalel\STLParalel\Main.cpp(35,17): warning C4566: character represented by universal-character-name '\u021B' cannot be represented in the current code page (1252)
+C:\Users\bughi\source\repos\STLParalel\STLParalel\Main.cpp(94,13): warning C4566: character represented by universal-character-name '\u2705' cannot be represented in the current code page (1252)
+C:\Users\bughi\source\repos\STLParalel\STLParalel\Main.cpp(95,13): warning C4566: character represented by universal-character-name '\u23F1' cannot be represented in the current code page (1252)
+C:\Users\bughi\source\repos\STLParalel\STLParalel\Main.cpp(95,13): warning C4566: character represented by universal-character-name '\uFE0F' cannot be represented in the current code page (1252)
+C:\Users\bughi\source\repos\STLParalel\STLParalel\Main.cpp(95,13): warning C4566: character represented by universal-character-name '\u021B' cannot be represented in the current code page (1252)
+  STLParalel.vcxproj -> C:\Users\bughi\source\repos\STLParalel\x64\Debug\STLParalel.exe
