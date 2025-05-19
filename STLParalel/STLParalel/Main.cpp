@@ -9,7 +9,6 @@
 
 using namespace std;
 
-// Citește vectorul complet din fișier
 vector<int> read_vector_from_file(const string& filename) {
     ifstream fin(filename);
     vector<int> v;
@@ -19,7 +18,6 @@ vector<int> read_vector_from_file(const string& filename) {
     return v;
 }
 
-// Scrie vectorul într-un fișier
 void write_to_file(const string& filename, const vector<int>& data) {
     ofstream fout(filename);
     for (int x : data) fout << x << " ";
@@ -29,28 +27,18 @@ void write_to_file(const string& filename, const vector<int>& data) {
 int main() {
     const string filename = "data_100000000.txt";
 
-    // Citește toți cei 9 milioane de itemi
     vector<int> full_data = read_vector_from_file(filename);
-    if (full_data.size() != 100'000'000) {
-        cerr << "⚠️ Eroare: fisierul nu conține exact 9 milioane de elemente!\n";
-        return 1;
-    }
-
-    // Împarte în două vectori sortați
+    
     size_t mid = full_data.size() / 2;
     vector<int> A(full_data.begin(), full_data.begin() + mid);
     vector<int> B(full_data.begin() + mid, full_data.end());
-    // Pornește cronometrul
+    
     auto start_time = chrono::high_resolution_clock::now();
     sort(std::execution::par, A.begin(), A.end());
     sort(std::execution::par, B.begin(), B.end());
 
-    // Vector rezultat
     vector<int> C(A.size() + B.size(), 0);
 
-   
-
-    // Pas 1: împărțim în blocuri
     const int blocks = 4;
     vector<pair<size_t, size_t>> ranges(blocks);
     for (int i = 0; i < blocks; ++i) {
@@ -61,7 +49,6 @@ int main() {
         ranges[i] = { a_start, a_end };
     }
 
-    // Pas 2: merge paralel pe blocuri
     std::for_each(std::execution::par, ranges.begin(), ranges.end(), [&](auto range) {
         size_t i_start = range.first;
         size_t i_end = range.second;
@@ -91,8 +78,7 @@ int main() {
     double elapsed = chrono::duration<double>(end_time - start_time).count();
 
     write_to_file("data_100000000_sorted_parallel_stl.txt", C);
-    cout << "✅ Merge paralel STL-only completat.\n";
-    cout << "⏱️  Timp total de execuție: " << elapsed << " secunde.\n";
+    cout << "Timp total de executie: " << elapsed << " secunde.\n";
 
     return 0;
 }
